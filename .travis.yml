@@ -8,5 +8,4 @@ services:
 script: 
   app/run.sh
 
-  on: 
-    branch: master
+
