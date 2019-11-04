@@ -3,8 +3,5 @@ language: java
 services:
   - docker
 
-
- 
-
-script: 
-run
+  script: 
+mvn test
