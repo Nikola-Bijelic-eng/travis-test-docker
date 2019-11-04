@@ -6,4 +6,7 @@ services:
   - docker
 
 script: 
-  - echo "hello world"
+  app/run.sh
+
+  on: 
+    branch: master
