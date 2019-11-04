@@ -7,4 +7,4 @@ services:
  
 
 script: 
-  -docker-compose run app sh
+  run.sh
