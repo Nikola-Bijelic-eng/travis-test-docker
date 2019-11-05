@@ -10,11 +10,9 @@ env:
   ACTIVEMQ_VERSION: 5.14.3
   CAMEL_VERSION: 2.16.3
 
-before_install:
-
-  - sudo mv docker-compose /usr/local/bin
-
 
 script:
+  - docker-compose build
+  - docker-compose run test
   - echo "Hello World"
 
