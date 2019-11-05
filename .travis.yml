@@ -13,6 +13,5 @@ env:
 
 script:
   - docker-compose build
-  - docker-compose run test
   - echo "Hello World"
 
