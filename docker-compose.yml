@@ -1,14 +1,32 @@
-version: "2"
+version: '2.2'
 services:
-  execution-core-container:
-    container_name: execution-core-container
+  execution_core_container_core:
     build: ./ecc
-    ports:
-      - "8161:8161"   # web interface
-      - "8162:8162"   # web interface SSL
-      - "61716:61716" # SSL
-      - "61816:61816" # unencrypted
+    environment:
+    - DATA_APP_SSL_CERT_FILE=/cert/ssl-server.jks
+    - DATA_APP_SSL_CERT_PWD=changeit
+    - DATA_APP_ENDPOINT=192.168.56.1:8083/incoming-data-app/dataAppIncomingMessageReceiver
+    #ports:
+      #- "9091:9091"   # CAMEL REST
+      #- "8161:8161"   # web interface
+      #- "8162:8162"   # web interface SSL
+      #- "61716:61716" # SSL
+      #- "61816:61816" # unencrypted
       #- "1883:1883"   # MQTT
     volumes:
       - ./activemq/data:/opt/activemq/data
       - ./etc:/execution-core-container
+      - ./cert:/cert
+
+  execution_core_container_bl:
+    depends_on:
+     - execution_core_container_core  
+    build: .
+    ports:
+      - 8450:8449
+      - 8090:8089
+    environment:
+       - "SPRING_PROFILES_ACTIVE=docker"  
+    volumes:
+      - ./resources:/config
+      - ./cert:/cert

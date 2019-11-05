@@ -144,7 +144,7 @@
                </bean>
                 <!--
                     Enable this connector if you wish to use https with web console
-               -->
+              
                 <bean id="SecureConnector" class="org.eclipse.jetty.server.ServerConnector">
 					<constructor-arg ref="Server" />
 					<constructor-arg>
@@ -156,6 +156,7 @@
 					</constructor-arg>
 					<property name="port" value="8162" />
 				</bean>
+				 -->
             </list>
     	</property>
     </bean>

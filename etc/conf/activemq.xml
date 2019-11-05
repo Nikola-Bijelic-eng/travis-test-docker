@@ -7,7 +7,7 @@
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"/>
 	
  
-    <broker xmlns="http://activemq.apache.org/schema/core" brokerName="ConnectorA" persistent="true" useJmx="true">
+    <broker xmlns="http://activemq.apache.org/schema/core" brokerName="Execution_Core_Container_JSM_Broker" persistent="true" useJmx="true">
 		<destinations>
 			<queue physicalName="incoming" />
 			<queue physicalName="outcoming" />
@@ -36,17 +36,11 @@
 			</map>
 		</authorizationPlugin>
 		</plugins>
-        <sslContext>
-            		<sslContext keyStore="file:${activemq.base}/conf/amq-client.ks"
-                        keyStorePassword="password" trustStore="file:${activemq.base}/conf/amq-client.ts"
-                        trustStorePassword="password"/>
-        </sslContext>
         <persistenceAdapter>
             <memoryPersistenceAdapter />
         </persistenceAdapter>
         <transportConnectors>
             <transportConnector name="openwire" uri="tcp://0.0.0.0:61816?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600" />
-            <transportConnector name="openwire-ssl" uri="ssl://0.0.0.0:61716?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600" />
         </transportConnectors>
     </broker>
     <import resource="routes.xml"/>

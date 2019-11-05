@@ -1,43 +1,62 @@
-# Industrial Data Space - BaseConnector
-This is a minimal setup of a **BaseConnector** for the **Industrial Data Space** based on the following Open Source components:
+# Execution Core Container
 
-* [Docker](https://www.docker.com/)
-* [Apache ActiveMQ](http://activemq.apache.org/)
-* [Apache Camel (embedded in ActiveMQ)](http://camel.apache.org/)
-* [Portainer](https://portainer.io/)
+Execution Core Container for Market4.0 project based on the IDS Base Connector. <br/>
 
-## Preliminaries
 
-You need a preconfigured Docker environment for the BaseConnector:
+![Execution Core Container Architecture](connector_schema_v1.1.PNG?raw=true "Execution Core Container Architecture")
 
-* Linux
-* Docker
-* Docker-compose
+## How to Configurate and Run
 
-We recommend **Ubuntu** & **Docker CE** for development environments.
+The configuration should be performed customizing the following variables in the **docker-compose** file:
+* **DATA_APP_SSL_CERT_FILE=/cert/ssl-server.jks** relative path for the DataAPP self-signed certificate, CN of the certificate should be equal to the IP/hostname server address (communication will be established only over https)
+* **DATA_APP_SSL_CERT_PWD=changeit** password of the certificate
+* **DATA_APP_ENDPOINT=192.168.56.1:8083/incoming-data-app/dataAppIncomingMessageReceiver** DataAPP endpoint for receiveing data (F endpoint in the above picture)
+* Edit external port if need (default values: **8090 http** and **8450 https**)
 
-## Setup
-Use the following command to start:
+Moreover, DAPS Server should be configured (tested using Fraunhofer AISEC DAPS Server): 
+* Put **DAPS certificates** into the cert folder and edit related settings (i.e., *application.keyStoreName*, *application.keyStorePassword*) into the *resources/application.properties* file
 
-    docker-compose up
+Finally, run the application:
 
-Edit `docker-compose.yml` as required.
+*  Execute `docker-compose up &`
+
+<br/>
+
+## Endpoints
+The Execution Core Container will use two ports (http and https) as described by the Docker Compose File.<br/>
+It will expose the following endpoints (both over https):
+```
+* /incoming-data-app/MultipartMessage to receive data (MultiPartMessage) from Data App (the A endpoint in the above picture)
+* /incoming-data-channel/receivedMessage to receive data (IDS Message) from a sender connector (the B endpoint in the above picture)
+```
+Furthermore, just for testing it will expose (http and https):
+```
+* /about/version returns business logic version 
+```
+
 
 ## Configuration
 
-Use **Portainer** to add Data-Apps to the BaseConnector:
 
-    http://<your-ip>:9000
+## How to Test
+The reachability could be verified using the following endpoints:
+*  **http://{IP_ADDRESS}:{PORT}/about/version**
+*  **https://{IP_ADDRESS}:{HTTPS_PORT}/about/version**
 
-Change configuration in `./etc/conf/activemq.xml` and add custom routes in `routes.xml`.
-You can add additional jars by adding them in `./etc/activemq/lib`.
-Changes will take effect after you restart the container.
 
-See **Reference Use-Case Logistics** for more verbose examples.
+The sender DataApp should send a request using the following schema, specifing in the Forward-To header the destination connector URL:
+```
+curl -X POST \
+  http://{IPADDRESS}:{HTTPS_PORT}/incoming-data-app/MultipartMessage \ 
+  -H 'Accept: */*' \
+  -H 'Content-Type: multipart/mixed; boundary=CQWZRdCCXr5aIuonjmRXF-QzcZ2Kyi4Dkn6;charset=UTF-8' \
+  -H 'Forward-To: https://{RECEIVER_IP_ADDRESS}:{HTTPS_PORT}/incoming-data-channel/receivedMessage' \
+  -D 'MULTIPART MESSAGE DATA' 
+ 
+```
+An example of Multipart Message data (aligned to the IDS Information Model) can be found in the examples folder.
 
-# Contact
-Fraunhofer-Institut für Software- und Systemtechnik ISST
+The receiver connector will receive the request to the specified "*Forward-To*" URL, process data and finally send data to the *DATA_APP_ENDPOINT* as specificed in its docker-compose.
 
-<https://www.isst.fraunhofer.de>
 
-ids-lab@isst.fraunhofer.de
+
