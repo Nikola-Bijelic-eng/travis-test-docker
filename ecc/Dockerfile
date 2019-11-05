@@ -19,21 +19,21 @@ WORKDIR /opt
 RUN set -e \
   && wget -O - http://archive.apache.org/dist/activemq/${ACTIVEMQ_VERSION}/apache-activemq-${ACTIVEMQ_VERSION}-bin.tar.gz \
   | tar -xz \
-  && mv /opt/apache-activemq-${ACTIVEMQ_VERSION} /opt/activemq-02 \
+  && mv /opt/apache-activemq-${ACTIVEMQ_VERSION} /opt/activemq \
   && wget https://repo1.maven.org/maven2/org/apache/camel/camel-http/${CAMEL_VERSION}/camel-http-${CAMEL_VERSION}.jar \
-  && mv camel-http-${CAMEL_VERSION}.jar /opt/activemq-02/lib/camel/camel-http-${CAMEL_VERSION}.jar \
+  && mv camel-http-${CAMEL_VERSION}.jar /opt/activemq/lib/camel/camel-http-${CAMEL_VERSION}.jar \
   && wget https://repo1.maven.org/maven2/org/apache/camel/camel-http-common/${CAMEL_VERSION}/camel-http-common-${CAMEL_VERSION}.jar \
-  && mv camel-http-common-${CAMEL_VERSION}.jar /opt/activemq-02/lib/camel/camel-http-common-${CAMEL_VERSION}.jar \
+  && mv camel-http-common-${CAMEL_VERSION}.jar /opt/activemq/lib/camel/camel-http-common-${CAMEL_VERSION}.jar \
   && wget https://repo1.maven.org/maven2/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar \
-  && mv commons-httpclient-3.1.jar /opt/activemq-02/lib/optional/commons-httpclient-3.1.jar \
-  && cp -R /opt/activemq-02 /opt/.activemq-02_bak
+  && mv commons-httpclient-3.1.jar /opt/activemq/lib/optional/commons-httpclient-3.1.jar \
+  && cp -R /opt/activemq /opt/.activemq_bak
 
 # run.sh copies mounted activemq files and starts activemq
 COPY run.sh /app/run.sh
 RUN chmod +x /app/run.sh
 
-VOLUME /execution-core-container-02
-VOLUME /opt/activemq-02/data
+VOLUME /execution-core-container
+VOLUME /opt/activemq/data
 
-WORKDIR /opt/activemq-02
+WORKDIR /opt/activemq
 ENTRYPOINT ["/app/run.sh"]

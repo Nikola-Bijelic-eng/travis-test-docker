@@ -25,12 +25,13 @@ elif [ "$1" = "--help" ] || [ "$1" = "-h" ] ; then
     exit
 else
     #restore original state of activemq home directory but keep data and copy activemq config files
-    rsync -a --checksum --delete --force --exclude=data /execution-core-container/ /opt/.activemq_bak/ /opt/activemq/
+    rsync -a --checksum --force --exclude=data /execution-core-container/ /opt/.activemq_bak/ /opt/activemq/
     if [ "$1" = "--delete-activemq-data" ] || [ "$1" = "-d" ] ; then
         #restore original state of activemq data directory
         rsync -a --checksum --delete --force /opt/.activemq_bak/data/ /opt/activemq/data/
     fi
 fi
+
 
 #run activemq
 exec /opt/activemq/bin/activemq console xbean:conf/activemq.xml
