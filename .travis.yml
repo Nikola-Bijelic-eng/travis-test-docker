@@ -10,18 +10,10 @@ env:
   CAMEL_VERSION: 2.16.3
 
 before_install:
-  - curl -X POST \
-  http://{IPADDRESS}:{HTTPS_PORT}/incoming-data-app/MultipartMessage \ 
-  -H 'Accept: */*' \
-  -H 'Content-Type: multipart/mixed; boundary=CQWZRdCCXr5aIuonjmRXF-QzcZ2Kyi4Dkn6;charset=UTF-8' \
-  -H 'Forward-To: https://{RECEIVER_IP_ADDRESS}:{HTTPS_PORT}/incoming-data-channel/receivedMessage' \
-  -D 'MULTIPART MESSAGE DATA' 
   - chmod +x /app/run.sh
   - sudo mv docker-compose /usr/local/bin
 
 
 script:
-  - docker-compose build
-  - docker-compose run testa
   - echo "Hello World"
 
