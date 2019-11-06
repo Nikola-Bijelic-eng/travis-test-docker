@@ -10,7 +10,7 @@ env:
   ACTIVEMQ_VERSION: 5.14.3
   CAMEL_VERSION: 2.16.3
 
-  before script:
+  before_script:
   - curl -X POST \
   http://{IPADDRESS}:{HTTPS_PORT}/incoming-data-app/MultipartMessage \ 
   -H 'Accept: */*' \
