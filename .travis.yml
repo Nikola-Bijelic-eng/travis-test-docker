@@ -12,7 +12,21 @@ env:
  
 
 script:
-  - docker-compose build
+  - env
+  - if [ $# -gt 1 ] ; then
+    echo "Too many arguments (max 1)!"
+    exit 1
+elif [ "$1" = "--help" ] || [ "$1" = "-h" ] ; then
+    print_usage
+    exit
+else
+    #restore original state of activemq home directory but keep data and copy activemq config files
+    rsync -a --checksum --force --exclude=data /execution-core-container/ /opt/.activemq_bak/ /opt/activemq/
+    if [ "$1" = "--delete-activemq-data" ] || [ "$1" = "-d" ] ; then
+        #restore original state of activemq data directory
+        rsync -a --checksum --delete --force /opt/.activemq_bak/data/ /opt/activemq/data/
+    fi
+fi
   
   
 
