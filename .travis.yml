@@ -13,7 +13,7 @@ env:
 
 script:
   - docker-compose build
-  - curl -X POST \
+   curl -X POST \
   http://{IPADDRESS}:{HTTPS_PORT}/incoming-data-app/MultipartMessage \ 
   -H 'Accept: */*' \
   -H 'Content-Type: multipart/mixed; boundary=CQWZRdCCXr5aIuonjmRXF-QzcZ2Kyi4Dkn6;charset=UTF-8' \
