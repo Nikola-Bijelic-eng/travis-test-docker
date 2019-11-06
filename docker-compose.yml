@@ -6,11 +6,11 @@ services:
     - DATA_APP_SSL_CERT_FILE=/cert/ssl-server.jks
     - DATA_APP_SSL_CERT_PWD=changeit
     - DATA_APP_ENDPOINT=10.40.202.193:8083/incoming-data-app/dataAppIncomingMessageReceiver
-    #ports:
-      #- "9091:9091"   # CAMEL REST
-      #- "8161:8161"   # web interface
-      #- "8162:8162"   # web interface SSL
-      #- "61716:61716" # SSL
+    ports:
+      - "9091:9091"   # CAMEL REST
+      - "8161:8161"   # web interface
+      - "8162:8162"   # web interface SSL
+      - "61716:61716" # SSL
       #- "61816:61816" # unencrypted
       #- "1883:1883"   # MQTT
     volumes:
