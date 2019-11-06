@@ -11,7 +11,7 @@ services:
       - "8161:8161"   # web interface
       - "8162:8162"   # web interface SSL
       - "61716:61716" # SSL
-      - "61816:61816" # unencrypted
+      #- "61816:61816" # unencrypted
       #- "1883:1883"   # MQTT
     volumes:
       - ./activemq/data:/opt/activemq/data
