@@ -13,6 +13,6 @@ env:
 
 script:
   - docker-compose build
-  - Dockerfile build
+  
   
 
