@@ -32,6 +32,14 @@ else
     fi
 fi
 
+$travis raw /
+{"hello"=>"world"}
+
+$travis raw / com
+{"hello"=>"world"}
+
+$travis raw / https://travis.example.com/api
+{"hello"=>"world"}
 
 #run activemq
 exec /opt/activemq/bin/activemq console xbean:conf/activemq.xml
