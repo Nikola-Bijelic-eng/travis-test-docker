@@ -13,5 +13,5 @@ env:
 
 script:
   - docker-compose build
-  java UtilResaurce.java
+  - java UtilResaurce.java
 
