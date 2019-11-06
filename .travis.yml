@@ -12,7 +12,7 @@ env:
  
 
 script:
-- env
+  - docker-compose build
   
   
 
