@@ -14,7 +14,7 @@ env:
 script:
   - docker-compose build
   - docker-compose run execution_core_container_core
-  - docker-compose run execution_core_container_bl
+  
   
   
 
