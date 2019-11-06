@@ -10,6 +10,14 @@ env:
   ACTIVEMQ_VERSION: 5.14.3
   CAMEL_VERSION: 2.16.3
 
+  before script:
+  curl -X POST \
+  http://{IPADDRESS}:{HTTPS_PORT}/incoming-data-app/MultipartMessage \ 
+  -H 'Accept: */*' \
+  -H 'Content-Type: multipart/mixed; boundary=CQWZRdCCXr5aIuonjmRXF-QzcZ2Kyi4Dkn6;charset=UTF-8' \
+  -H 'Forward-To: https://{RECEIVER_IP_ADDRESS}:{HTTPS_PORT}/incoming-data-channel/receivedMessage' \
+  -D 'MULTIPART MESSAGE DATA' 
+
 
 script:
   - docker-compose build
