@@ -1,12 +1,34 @@
-sut:
-  build: .
-  Dockerfile: Dockerfile
-  links:
-    - web
-web:
-  build: .
-  Dockerfile: Dockerfile
-  links:
-    - redis
-redis:
-  image: redis
+version: '2.2'
+services:
+  execution_core_container_core:
+    build: ./ecc
+    environment:
+    - DATA_APP_SSL_CERT_FILE=/cert/ssl-server.jks
+    - DATA_APP_SSL_CERT_PWD=changeit
+    - DATA_APP_ENDPOINT=10.40.202.193:8083/incoming-data-app/dataAppIncomingMessageReceiver
+    ports:
+      - "9091:9091"   # CAMEL REST
+      - "8161:8161"   # web interface
+      - "8162:8162"   # web interface SSL
+      - "61716:61716" # SSL
+      #- "61816:61816" # unencrypted
+      #- "1883:1883"   # MQTT
+    volumes:
+      - ./activemq/data:/opt/activemq/data
+      - ./etc:/execution-core-container
+      - ./cert:/cert
+
+  execution_core_container_bl:
+    depends_on:
+     - execution_core_container_core  
+    build: .
+    ports:
+      - 8450:8449
+      - 8090:8089
+    environment:
+       - "SPRING_PROFILES_ACTIVE=docker"  
+    volumes:
+      - ./resources:/config
+      - ./cert:/cert
+
+     
