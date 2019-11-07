@@ -31,17 +31,4 @@ services:
     volumes:
       - ./resources:/config
       - ./cert:/cert
-      execution_core_container_blconsumer:
-    depends_on:
-     - execution_core_container_core  
-    build: .
-    ports:
-      - 8451:8448
-      - 8091:8088
-    environment:
-       - "SPRING_PROFILES_ACTIVE=docker"  
-    volumes:
-      - ./resources:/config
-      - ./cert:/cert
-
       
