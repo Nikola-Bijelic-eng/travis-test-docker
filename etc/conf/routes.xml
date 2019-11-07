@@ -36,7 +36,7 @@ http://camel.apache.org/schema/spring/camel-spring.xsd" >
             <from uri="activemq:queue:incoming" />
                 <setHeader headerName="CamelHttpMethod">
                 <constant>POST</constant> </setHeader>
-            <to uri="http://execution_core_container_bl:8089/incoming-data-channel/message"/>
+            <to uri="http://execution_core_container_bl:8081/incoming-data-channel/message"/>
         </route>
 		<!--
 		<route id="sendStringMessageRoute">
