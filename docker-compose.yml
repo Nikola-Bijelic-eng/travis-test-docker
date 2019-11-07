@@ -17,7 +17,23 @@ services:
       - ./activemq/data:/opt/activemq/data
       - ./etc:/execution-core-container
       - ./cert:/cert
-       execution_core_container_core_consumer:
+      
+
+  execution_core_container_bl:
+    depends_on:
+     - execution_core_container_core  
+    build: .
+    ports:
+      - 8450:8449
+      - 8090:8089
+    environment:
+       - "SPRING_PROFILES_ACTIVE=docker"  
+    volumes:
+      - ./resources:/config
+      - ./cert:/cert
+
+      services:
+  execution_core_container_coreconsumer:
     build: ./ecc
     environment:
     - DATA_APP_SSL_CERT_FILE=/cert/ssl-server.jks
@@ -34,23 +50,11 @@ services:
       - ./activemq/data:/opt/activemq/data
       - ./etc:/execution-core-container
       - ./cert:/cert
+      
 
-
-  execution_core_container_bl:
+  execution_core_container_blconsumer:
     depends_on:
      - execution_core_container_core  
-    build: .
-    ports:
-      - 8450:8449
-      - 8090:8089
-    environment:
-       - "SPRING_PROFILES_ACTIVE=docker"  
-    volumes:
-      - ./resources:/config
-      - ./cert:/cert
-      execution_core_container_bl_2:
-    depends_on:
-     - execution_core_container_core_2  
     build: .
     ports:
       - 8450:8449
