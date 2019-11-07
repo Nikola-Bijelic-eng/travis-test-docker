@@ -12,8 +12,8 @@ env:
  
 
 script:
-  - docker-compose.test build
-  - docker-compose.test up
+  - docker-compose build
+  - docker-compose up
   
  
   
