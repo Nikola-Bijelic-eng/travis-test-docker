@@ -17,7 +17,7 @@ services:
       - ./activemq/data:/opt/activemq/data
       - ./etc:/execution-core-container
       - ./cert:/cert
-       execution_core_container_core_2:
+       execution_core_container_core_consumer:
     build: ./ecc
     environment:
     - DATA_APP_SSL_CERT_FILE=/cert/ssl-server.jks
