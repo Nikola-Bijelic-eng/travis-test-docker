@@ -12,7 +12,6 @@ env:
  
 
 script:
-  - docker build -f Dockerfile
   - docker-compose build
   - docker-compose up
   
