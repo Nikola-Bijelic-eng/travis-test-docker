@@ -9,7 +9,15 @@ services:
 env:
   ACTIVEMQ_VERSION: 5.14.3
   
- 
+before_install:
+ - curl -X POST \
+  http://10.40.202.193:8083/incoming-data-app/MultipartMessage \ 
+  -H 'Accept: */*' \
+  -H 'Content-Type: multipart/mixed; boundary=CQWZRdCCXr5aIuonjmRXF-QzcZ2Kyi4Dkn6;charset=UTF-8' \
+  -H 'Forward-To: https://10.40.202.193:8444/incoming-data-channel/receivedMessage' \
+  -D 'MULTIPART MESSAGE DATA'
+ - chmod +x docker-compose
+ - sudo mv docker-compose /usr/local/bin
 
 script:
   - docker-compose build
