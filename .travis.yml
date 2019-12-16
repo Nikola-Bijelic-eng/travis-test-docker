@@ -10,7 +10,7 @@ env:
   ACTIVEMQ_VERSION: 5.14.3
 
 install:
-  - ../wait-for-it/wait-for-it.sh
+  # - ./wait-for-it/wait-for-it.sh
   - ./run.sh
   - docker-compose -f ./travis-test-docker/docker-compose.yml up -d
 
