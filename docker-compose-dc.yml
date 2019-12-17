@@ -1,11 +1,9 @@
-version: '2.2'
-services:
-  execution_core_container_core:
+execution_core_container_corew:
     build: ./ecc
     environment:
     - DATA_APP_SSL_CERT_FILE=/cert/ssl-server.jks
     - DATA_APP_SSL_CERT_PWD=changeit
-    - DATA_APP_ENDPOINT=10.40.202.193:8083/incoming-data-app/dataAppIncomingMessageReceiver
+    - DATA_APP_ENDPOINT=10.40.202.193:8082/incoming-data-app/dataAppIncomingMessageReceiver
     ports:
       - "9091:9091"   # CAMEL REST
       - "8161:8161"   # web interface
@@ -19,9 +17,9 @@ services:
       - ./cert:/cert
       
 
-  execution_core_container_bl:
+  execution_core_container_bll:
     depends_on:
-     - execution_core_container_core  
+     - execution_core_container_corew  
     build: .
     ports:
       - 8450:8449
@@ -31,6 +29,3 @@ services:
     volumes:
       - ./resources:/config
       - ./cert:/cert
-
-      
-      
