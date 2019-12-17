@@ -57,8 +57,8 @@ services:
      - execution_core_container_core_second  
     build: .
     ports:
-      - 8450:8449
-      - 8090:8089
+      - 8451:8449
+      - 8091:8089
     environment:
        - "SPRING_PROFILES_ACTIVE=docker"  
     volumes:
