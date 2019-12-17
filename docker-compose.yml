@@ -32,7 +32,7 @@ services:
       - ./resources:/config
       - ./cert:/cert
 
-      services:
+     
   execution_core_container_core_second:
     build: ./ecc
     environment:
