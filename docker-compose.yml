@@ -10,7 +10,7 @@ services:
       - "9091:9091"   # CAMEL REST
       - "8161:8161"   # web interface
       - "8162:8162"   # web interface SSL
-      - "61717:61717" # SSL
+      - "61716:61716" # SSL
       #- "61816:61816" # unencrypted
       #- "1883:1883"   # MQTT
     volumes:
@@ -40,10 +40,10 @@ services:
     - DATA_APP_SSL_CERT_PWD=changeit
     - DATA_APP_ENDPOINT=10.40.202.193:8082/incoming-data-app/dataAppIncomingMessageReceiver
     ports:
-      - "9091:9091"   # CAMEL REST
-      - "8161:8161"   # web interface
-      - "8162:8162"   # web interface SSL
-      - "61716:61716" # SSL
+      - "9092:9092"   # CAMEL REST
+      - "8163:8163"   # web interface
+      - "8164:8164"   # web interface SSL
+      - "61717:61717" # SSL
       #- "61816:61816" # unencrypted
       #- "1883:1883"   # MQTT
     volumes:
