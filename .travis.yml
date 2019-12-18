@@ -15,9 +15,6 @@ env:
   #   - ./travis-test-docker/ecc/run.sh
   #   - docker-compose -f ./travis-test-docker/docker-compose.yml up -d
 
-  deploy:
-  provider: script
-
 script:
   - docker-compose build
   - bash ./travis-test-docker/wait-for-it/wait-for-it.sh
