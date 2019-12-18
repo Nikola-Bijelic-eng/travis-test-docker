@@ -6,8 +6,8 @@ sudo: required
 services:
   - docker
 
-env:
-  ACTIVEMQ_VERSION: 5.14.3
+# env:
+#   ACTIVEMQ_VERSION: 5.14.3
 
   before_install:
  - chmod +x gradlew
