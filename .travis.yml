@@ -15,7 +15,8 @@ env:
     - docker-compose -f ./travis-test-docker/docker-compose.yml up -d
 
 script:
-  - docker-compose build
+ - npm run coverage
+  # - docker-compose build
   # - docker-compose up
   # - docker-compose run test
   
