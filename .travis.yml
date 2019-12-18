@@ -17,7 +17,7 @@ env:
 
 script:
   - docker-compose build
-  - bash ./travis-test-docker/wait-for-it/wait-for-it.sh
+  - ./travis-test-docker/wait-for-it/wait-for-it.sh
 #  - test ./travis-test-docker/wait-for-it/test.sh 
 #  - test ./travis-test-docker/wait-for-it/wait-for-it.sh
 # - docker-compose up
