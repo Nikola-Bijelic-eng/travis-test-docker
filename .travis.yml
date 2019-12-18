@@ -23,8 +23,7 @@ script:
 # - docker-compose up
 #  - docker-compose run test
 
- on:
-    branch: master
+
   
  
   
