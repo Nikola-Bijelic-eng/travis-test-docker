@@ -17,6 +17,7 @@ env:
 
 script:
  - docker-compose build
+ - run test.sh 
   # - docker-compose up
   # - docker-compose run test
   
