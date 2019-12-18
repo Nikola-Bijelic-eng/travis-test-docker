@@ -11,7 +11,7 @@ env:
 
   install:
     - ./travis-test-docker/wait-for-it/wait-for-it.sh
-  # - ./run.sh
+    - ./travis-test-docker/ecc/run.sh
   # - docker-compose -f ./travis-test-docker/docker-compose.yml up -d
 
 script:
