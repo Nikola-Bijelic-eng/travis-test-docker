@@ -1,3 +1,4 @@
+echoerr "WELOOOOOOOO WOOOORLLLLDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"
 - curl -X POST \
   http://localhost:8443/incoming-data-app/MultipartMessage \ 
   -H 'Accept: */*' \
