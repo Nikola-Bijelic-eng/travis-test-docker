@@ -5,7 +5,7 @@ services:
     environment:
     - DATA_APP_SSL_CERT_FILE=/cert/ssl-server.jks
     - DATA_APP_SSL_CERT_PWD=changeit
-    - DATA_APP_ENDPOINT=10.40.202.193:8083/incoming-data-app/dataAppIncomingMessageReceiver
+    - DATA_APP_ENDPOINT=10.40.202.193:8083/about
     ports:
       - "9091:9091"   # CAMEL REST
       - "8161:8161"   # web interface
