@@ -20,6 +20,7 @@ script:
 # - test ./travis-test-docker/wait-for-it/test.sh 
 #  - test ./travis-test-docker/wait-for-it/wait-for-it.sh
   - docker-compose up
+after_script:
   - bash test.sh
 #  - docker-compose run test
 
