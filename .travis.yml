@@ -18,11 +18,12 @@ env:
 script:
   - docker-compose build
   - docker-compose up
-  - curl -k -request GET 'https://localhost:8450/about/version'
 # - bash ./travis-test-docker/wait-for-it/test.sh
 # - test ./travis-test-docker/wait-for-it/test.sh 
 #  - test ./travis-test-docker/wait-for-it/wait-for-it.sh
 #  - docker-compose run test
+after_script:
+  - curl -k -request GET 'https://localhost:8450/about/version'
 
 
   
