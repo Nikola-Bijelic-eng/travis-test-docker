@@ -17,7 +17,7 @@ env:
 jobs:
   include:
     - stage: build
-       script:
+script:
         - docker-compose build
         - docker-compose up
     # - stage: test
