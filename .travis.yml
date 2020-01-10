@@ -22,7 +22,7 @@ jobs:
         - docker-compose up
     - stage: test
        script: 
-        - ./test
+        - ./test.sh
   # - test ./travis-test-docker/wait-for-it/test.sh
   # - ../travis-test-docker/wait-for-it/test.sh
   # - ./wait-for-it/test.sh
