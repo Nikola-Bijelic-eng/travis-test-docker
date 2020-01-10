@@ -16,11 +16,11 @@ env:
   #   - docker-compose -f ./travis-test-docker/docker-compose.yml up -d
 
 script:
-  - bash ./travis-test-docker/wait-for-it/test.sh
   - docker-compose build
 # - test ./travis-test-docker/wait-for-it/test.sh 
 #  - test ./travis-test-docker/wait-for-it/wait-for-it.sh
   - docker-compose up
+  - bash test.sh
 #  - docker-compose run test
 
 
