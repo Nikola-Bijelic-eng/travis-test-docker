@@ -17,11 +17,10 @@ env:
 
 script:
   - docker-compose build
+  - bash ./travis-test-docker/wait-for-it/test.sh
 # - test ./travis-test-docker/wait-for-it/test.sh 
 #  - test ./travis-test-docker/wait-for-it/wait-for-it.sh
 # - docker-compose up
-after_script:
-  - bash ./travis-test-docker/wait-for-it/test.sh
 #  - docker-compose run test
 
 
