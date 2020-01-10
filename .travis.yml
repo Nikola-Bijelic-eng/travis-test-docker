@@ -17,7 +17,7 @@ env:
 
 script:
   - docker-compose build
-  - ./test.sh
+  - bash ./test.sh
   # - ./upload_script.sh
   - docker-compose up
 # - bash ./travis-test-docker/wait-for-it/test.sh
