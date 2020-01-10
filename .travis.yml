@@ -21,7 +21,7 @@ script:
   
   - docker-compose build
   # - test ./travis-test-docker/wait-for-it/test.sh
-  - travis-test-docker/wait-for-it/test.sh
+  - ./wait-for-it/test.sh
   # - ./wait-for-it/test.sh
   # - ./upload_script.sh
   - docker-compose up
