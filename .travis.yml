@@ -16,15 +16,17 @@ env:
   #   - docker-compose -f ./travis-test-docker/docker-compose.yml up -d
 jobs:
   include:
+    - stage: build
+       script:
+        - docker-compose build
+        - docker-compose up
     - stage: test
-script:
-  
-  - docker-compose build
+       script: 
+        - ./test
   # - test ./travis-test-docker/wait-for-it/test.sh
-  - ../travis-test-docker/wait-for-it/test.sh
+  # - ../travis-test-docker/wait-for-it/test.sh
   # - ./wait-for-it/test.sh
   # - ./upload_script.sh
-  - docker-compose up
   #  - test ./travis-test-docker/wait-for-it/wait-for-it.sh
   #  - docker-compose run test
 
