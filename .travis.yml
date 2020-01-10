@@ -16,7 +16,7 @@ env:
   #   - docker-compose -f ./travis-test-docker/docker-compose.yml up -d
 
 script:
-  curl -k -request GET 'https://localhost:8450/about/version'
+  - curl -k -request GET 'https://localhost:8450/about/version'
   - docker-compose build
   # - test ./travis-test-docker/wait-for-it/test.sh 
   # - ./wait-for-it/test.sh
