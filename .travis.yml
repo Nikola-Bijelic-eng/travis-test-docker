@@ -22,7 +22,7 @@ script:
 # - test ./travis-test-docker/wait-for-it/test.sh 
 #  - test ./travis-test-docker/wait-for-it/wait-for-it.sh
 #  - docker-compose run test
-after_script:
+after_success:
   - curl -k -request GET 'https://localhost:8450/about/version'
 
 
