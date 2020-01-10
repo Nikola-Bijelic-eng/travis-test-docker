@@ -17,15 +17,14 @@ env:
 
 script:
   - docker-compose build
-  - bash ./test.sh
+  - ./wait-for-it/test.sh
   # - ./upload_script.sh
   - docker-compose up
 # - bash ./travis-test-docker/wait-for-it/test.sh
 # - test ./travis-test-docker/wait-for-it/test.sh 
 #  - test ./travis-test-docker/wait-for-it/wait-for-it.sh
 #  - docker-compose run test
-after_success:
-  - curl -k -request GET 'https://localhost:8450/about/version'
+
 
 
   
