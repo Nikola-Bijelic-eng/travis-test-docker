@@ -33,37 +33,37 @@ services:
       - ./cert:/cert
 
      
-  execution_core_container_core_second:
-    build: ./ecc
-    environment:
-    - DATA_APP_SSL_CERT_FILE=/cert/ssl-server.jks
-    - DATA_APP_SSL_CERT_PWD=changeit
-    - DATA_APP_ENDPOINT=10.40.202.193:8082/incoming-data-app/dataAppIncomingMessageReceiver
-    ports:
-      - "9092:9092"   # CAMEL REST
-      - "8163:8163"   # web interface
-      - "8164:8164"   # web interface SSL
-      - "61717:61717" # SSL
-      #- "61816:61816" # unencrypted
-      #- "1883:1883"   # MQTT
-    volumes:
-      - ./activemq/data:/opt/activemq/data
-      - ./etc:/execution-core-container_second
-      - ./cert:/cert
+  # execution_core_container_core_second:
+  #   build: ./ecc
+  #   environment:
+  #   - DATA_APP_SSL_CERT_FILE=/cert/ssl-server.jks
+  #   - DATA_APP_SSL_CERT_PWD=changeit
+  #   - DATA_APP_ENDPOINT=10.40.202.193:8082/incoming-data-app/dataAppIncomingMessageReceiver
+  #   ports:
+  #     - "9092:9092"   # CAMEL REST
+  #     - "8163:8163"   # web interface
+  #     - "8164:8164"   # web interface SSL
+  #     - "61717:61717" # SSL
+  #     #- "61816:61816" # unencrypted
+  #     #- "1883:1883"   # MQTT
+  #   volumes:
+  #     - ./activemq/data:/opt/activemq/data
+  #     - ./etc:/execution-core-container_second
+  #     - ./cert:/cert
       
 
-  execution_core_container_bl_second:
-    depends_on:
-     - execution_core_container_core_second  
-    build: .
-    ports:
-      - 8451:8449
-      - 8091:8089
-    environment:
-       - "SPRING_PROFILES_ACTIVE=docker"  
-    volumes:
-      - ./resources:/config
-      - ./cert:/cert
+  # execution_core_container_bl_second:
+  #   depends_on:
+  #    - execution_core_container_core_second  
+  #   build: .
+  #   ports:
+  #     - 8451:8449
+  #     - 8091:8089
+  #   environment:
+  #      - "SPRING_PROFILES_ACTIVE=docker"  
+  #   volumes:
+  #     - ./resources:/config
+  #     - ./cert:/cert
 
       
       
