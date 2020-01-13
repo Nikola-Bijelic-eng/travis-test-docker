@@ -20,10 +20,11 @@ env:
 #   include:
 # - stage: build
 script:
-  - docker-compose build
+  - docker-compose up --build -d
   # - docker-compose up
 # after_script:
-  - curl -k -request GET 'https://localhost:8443/about/version'
+  - curl -k -request GET 'https://localhost:8450/about/version'
+  - docker-compose down
 # - stage: test
 # script: 
 #   - ./test.sh
