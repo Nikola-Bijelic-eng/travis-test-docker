@@ -16,9 +16,9 @@ env:
   #   - docker-compose -f ./travis-test-docker/docker-compose.yml up -d
 # before_script:
 #   - chmod +x ./test.sh
-jobs:
-  include:
-- stage: build
+# jobs:
+#   include:
+# - stage: build
 script:
   - docker-compose build
   - docker-compose up
