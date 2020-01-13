@@ -21,8 +21,8 @@ env:
 # - stage: build
 script:
   - docker-compose build
+  - docker-compose up
   - curl -k -request GET 'https://localhost:8450/about/version'
-  # - docker-compose up
 # - stage: test
 # script: 
 #   - ./test.sh
