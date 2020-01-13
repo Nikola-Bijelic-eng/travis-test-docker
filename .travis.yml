@@ -23,7 +23,7 @@ script:
   - docker-compose up --build -d
   # - docker-compose up
 # after_script:
-  - curl -k -request GET 'https://localhost:8450/about/version'
+  - curl -k -request POST 'https://localhost:8887/incoming-data-app/multipartMessageBodyBinary' --header 'Content-Type: multipart/mixed; boundary=CQWZRdCCXr5aIuonjmRXF-QzcZ2Kyi4Dkn6' --header 'Forward-To: https://localhost:8889/incoming-data-channel/receivedMessage' --data-binary '@/home/nikola/Documents/multipartmessage/MultipartMessageDataExample1.txt'
   - docker-compose down
 # - stage: test
 # script: 
