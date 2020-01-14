@@ -8,6 +8,7 @@ services:
 
 env:
   ACTIVEMQ_VERSION: 5.14.3
+  
 
 # install:
   #   - ./travis-test-docker/wait-for-it/wait-for-it.sh
@@ -24,13 +25,13 @@ env:
 #   - docker-compose up 
   # --build -d
   # - docker-compose up
-  jobs:
-  include:
-   - os: linux
-     arch: amd64
-   - os: linux
-     arch: arm64
-     
+  # jobs:
+  # include:
+  #  - os: linux
+  #    arch: amd64
+  #  - os: linux
+  #    arch: arm64
+
 script:
   - docker-compose build 
   - docker-compose up
