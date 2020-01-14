@@ -19,12 +19,14 @@ env:
 # jobs:
 #   include:
 # - stage: build
-before_script:
-  - docker-compose build 
-  - docker-compose up 
+# before_script:
+#   - docker-compose build 
+#   - docker-compose up 
   # --build -d
   # - docker-compose up
 script:
+  - docker-compose build 
+  - docker-compose up
   - curl -k -request GET 'https://10.40.202.121:8450/about/version'
   - docker-compose down
 # - stage: test
