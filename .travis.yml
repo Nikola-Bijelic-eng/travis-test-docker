@@ -20,9 +20,7 @@ env:
 #   include:
 # - stage: build
 before_script:
-  - docker-compose build
-  - docker-compose up 
-  # --build -d
+  - docker-compose up --build -d
   # - docker-compose up
 script:
   - curl -k -request GET 'https://10.40.202.121:8450/about/version'
