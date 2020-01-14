@@ -9,6 +9,7 @@ services:
 env:
   ACTIVEMQ_VERSION: 5.14.3
   
+dist: bionic
 
 # install:
   #   - ./travis-test-docker/wait-for-it/wait-for-it.sh
