@@ -10,7 +10,7 @@ env:
   ACTIVEMQ_VERSION: 5.14.3
 
 install:
-  - apt-get install libhsdis0-fcml
+  - sudo apt-get install libhsdis0-fcml
   #   - ./travis-test-docker/wait-for-it/wait-for-it.sh
   #   - ./travis-test-docker/wait-for-it/test.sh
   #   - ./travis-test-docker/ecc/run.sh
