@@ -24,6 +24,13 @@ env:
 #   - docker-compose up 
   # --build -d
   # - docker-compose up
+  jobs:
+  include:
+   - os: linux
+     arch: amd64
+   - os: linux
+     arch: arm64
+     
 script:
   - docker-compose build 
   - docker-compose up
