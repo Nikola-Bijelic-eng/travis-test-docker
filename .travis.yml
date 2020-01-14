@@ -19,11 +19,12 @@ env:
 # jobs:
 #   include:
 # - stage: build
-script:
-  - docker-compose up --build -d
+before_script:
+  - docker-compose build
+  - docker-compose up 
+  # --build -d
   # - docker-compose up
-# after_script:
-  - traceroute 'https://10.40.202.121:8450/about/version'
+script:
   - curl -k -request GET 'https://10.40.202.121:8450/about/version'
   - docker-compose down
 # - stage: test
