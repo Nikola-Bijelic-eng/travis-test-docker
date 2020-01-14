@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:amq="http://activemq.apache.org/schema/core"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -28,48 +27,27 @@ http://camel.apache.org/schema/spring/camel-spring.xsd" >
 			<get uri="/hello">
 				<to uri="direct:hello"/>
 			</get>
-			<get uri="/start">
-				<to uri="direct:start"/>
-			</get>
 		</rest>
         <route id="receiveMessageRoute">
             <from uri="activemq:queue:incoming" />
                 <setHeader headerName="CamelHttpMethod">
                 <constant>POST</constant> </setHeader>
-            <to uri="http://execution_core_container_bl:8081/incoming-data-channel/message"/>
+			<log message="Sending...\n${body}"/>
+            <to uri="http://execution_core_container_bl:8089/incoming-data-channel/message"/>
+			<log message="Received...\n${body}"/>
         </route>
-		<!--
-		<route id="sendStringMessageRoute">
+		<route id="sendMessageRoute">
             <from uri="activemq:queue:outcoming" />
                 <setHeader headerName="CamelHttpMethod">
                 <constant>POST</constant> </setHeader>
+            <!--<to uri="https4://192.168.56.1:8083/incoming-data-app/dataAppIncomingMessageReceiver?sslContextParametersRef=mySSLContextParameters"/>-->
 			<to uri="https4://{{env:DATA_APP_ENDPOINT}}?sslContextParametersRef=mySSLContextParameters"/>
-        </route>-->
-		<route id="sendMultipartMessageRoute">
-			<from uri="activemq:queue:outcoming"/>
-			<setHeader headerName="Content-Type"><simple>multipart/mixed; boundary=${body.replaceAll("[^']*(?:--(.*?)--)","$1").trim()}</simple></setHeader>
-			<setHeader headerName="Forward-To">
-				<constant>fake_endpoint</constant>
-			</setHeader>
-			<setHeader headerName="CamelHttpMethod">
-				<constant>POST</constant>
-			</setHeader>
-			<setBody>
-				<simple>
-					${body.replaceAll(--${body.replaceAll("[^']*(?:--(.*?)--)","$1")}, \\r\\n--${body.replaceAll("[^']*(?:--(.*?)--)","$1")})}
-				</simple>
-			</setBody>
-			<transform>
-				<simple>
-					${body.replaceAll("[\n]","\r\n")}
-				</simple> 
-			</transform> 
-			<log message="Sending...\n${body}"/>
-			<to uri="https4://{{env:DATA_APP_ENDPOINT}}?sslContextParametersRef=mySSLContextParameters"/>	
-		</route>
+        </route>
 		<route>
 			<from uri="direct:hello"/>
-			<log message="Got ${body}"/>	
+			<transform>
+				<constant>Hello World</constant>
+			</transform>
 		</route>	
     </camelContext>
     <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
