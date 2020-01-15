@@ -7,7 +7,7 @@ services:
   - docker
 
 env:
-  ACTIVEMQ_VERSION: 5.14.3
+  # ACTIVEMQ_VERSION: 5.14.3
   - openjdk11
   
 dist: bionic
