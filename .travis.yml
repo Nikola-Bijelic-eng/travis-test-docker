@@ -10,10 +10,10 @@ sudo: required
   # ACTIVEMQ_VERSION: 5.14.3
   # - openjdk11
   
-dist: bionic
+dist: trusty
 
-# jdk:
-#   - openjdk11
+jdk:
+  - openjdk8
 
 # install:
   #   - ./travis-test-docker/wait-for-it/wait-for-it.sh
