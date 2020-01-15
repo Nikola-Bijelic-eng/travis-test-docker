@@ -6,9 +6,9 @@ sudo: required
 services:
   - docker
 
-env:
+# env:
   # ACTIVEMQ_VERSION: 5.14.3
-  - openjdk11
+  # - openjdk11
   
 dist: bionic
 
