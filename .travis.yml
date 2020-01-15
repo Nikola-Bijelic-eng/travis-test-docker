@@ -8,11 +8,12 @@ services:
 
 env:
   ACTIVEMQ_VERSION: 5.14.3
+  - openjdk11
   
 dist: bionic
 
-jdk:
-  - openjdk11
+# jdk:
+#   - openjdk11
 
 # install:
   #   - ./travis-test-docker/wait-for-it/wait-for-it.sh
