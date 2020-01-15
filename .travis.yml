@@ -11,6 +11,9 @@ env:
   
 dist: bionic
 
+jdk:
+  - openjdk8
+
 # install:
   #   - ./travis-test-docker/wait-for-it/wait-for-it.sh
   #   - ./travis-test-docker/wait-for-it/test.sh
