@@ -11,8 +11,8 @@ env:
   
 dist: bionic
 
-jdk:
-  - openjdk8
+# jdk:
+#   - openjdk8
 
 # install:
   #   - ./travis-test-docker/wait-for-it/wait-for-it.sh
@@ -37,6 +37,7 @@ jdk:
   #    arch: arm64
 
 script:
+  - jdk_switcher use openjdk8
   - docker-compose pull
   - docker-compose build 
   - docker-compose up
