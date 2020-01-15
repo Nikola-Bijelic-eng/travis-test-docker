@@ -37,7 +37,6 @@ dist: bionic
   #    arch: arm64
 
 script:
-  - jdk_switcher use openjdk8
   - docker-compose pull
   - docker-compose build 
   - docker-compose up
