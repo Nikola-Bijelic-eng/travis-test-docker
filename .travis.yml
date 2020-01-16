@@ -3,12 +3,12 @@ language: java
 
 sudo: required
 
-# services:
-#   - docker
+services:
+  - docker
 
-# env:
-  # ACTIVEMQ_VERSION: 5.14.3
-  # - openjdk11
+env:
+  ACTIVEMQ_VERSION: 5.14.3
+  
   
 dist: trusty
 
