@@ -8,7 +8,7 @@ services:
       - 8889:8889
     environment:
        - "SPRING_PROFILES_ACTIVE=docker"  
-       - DATA_APP_ENDPOINT=https://10.40.202.121:8083/incoming-data-app/routerBodyBinary
+       - DATA_APP_ENDPOINT=https://10.40.202.201:8083/incoming-data-app/routerBodyBinary
       #- DATA_APP_ENDPOINT=https://192.168.56.1:8083/incoming-data-app/routerBodyFormData
        - MULTIPART=mixed 
       #- MULTIPART=form
