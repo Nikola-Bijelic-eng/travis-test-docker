@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-  
+
 language: java
 
 sudo: required
@@ -62,68 +61,3 @@ script:
   
   
 
-=======
-  
-language: java
-
-sudo: required
-
-services:
-  - docker
-
-env:
-  ACTIVEMQ_VERSION: 5.14.3
-  
-  
-dist: trusty
-
-jdk:
-  - openjdk12
-
-# install:
-  #   - ./travis-test-docker/wait-for-it/wait-for-it.sh
-  #   - ./travis-test-docker/wait-for-it/test.sh
-  #   - ./travis-test-docker/ecc/run.sh
-  #   - docker-compose -f ./travis-test-docker/docker-compose.yml up -d
-# before_script:
-#   - chmod +x ./test.sh
-# jobs:
-#   include:
-# - stage: build
-# before_script:
-#   - docker-compose build 
-#   - docker-compose up 
-  # --build -d
-  # - docker-compose up
-  # jobs:
-  # include:
-  #  - os: linux
-  #    arch: amd64
-  #  - os: linux
-  #    arch: arm64
-
-script:
-  - docker-compose pull
-  - docker-compose build 
-  - docker-compose up
-  - curl -k -request GET 'https://10.40.202.121:8450/about/version'
-  - docker-compose down
-# - stage: test
-# script: 
-#   - ./test.sh
-  # - test ./travis-test-docker/wait-for-it/test.sh
-  # - ../travis-test-docker/wait-for-it/test.sh
-  # - ./wait-for-it/test.sh
-  # - ./upload_script.sh
-  #  - test ./travis-test-docker/wait-for-it/wait-for-it.sh
-  #  - docker-compose run test
-
-
-
-  
- 
-  
-  
-  
-
->>>>>>> 6ed0ae799c064912df596faf8dbba6261cef80c6
