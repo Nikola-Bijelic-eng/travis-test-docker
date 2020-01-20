@@ -1,7 +1,7 @@
 
 language: java
 
-sudo: required
+# sudo: required
 
 services:
   - docker
@@ -30,10 +30,10 @@ dist: trusty
 #   - docker-compose up 
   # --build -d
   # - docker-compose up
-jobs:
-include:
-  - os: linux
-    arch: amd64
+# jobs:
+# include:
+#   - os: linux
+#     arch: amd64
   #  - os: linux
   #    arch: arm64
 
