@@ -39,6 +39,7 @@ include:
 
 script:
   - sudo apt-get install libhsdis0-fcml
+  - sudo cp /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/hsdis-amd64.so /usr/lib/jvm/java-8-oracle/jre/lib/amd64/hsdis-amd64.so
   - docker-compose pull
   - docker-compose build 
   - docker-compose up
