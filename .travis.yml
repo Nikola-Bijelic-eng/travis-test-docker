@@ -13,7 +13,7 @@ env:
 dist: trusty
 
 jdk:
-  - openjdk12
+  - openjdk-8-jdk
 
 # install:
   #   - ./travis-test-docker/wait-for-it/wait-for-it.sh
