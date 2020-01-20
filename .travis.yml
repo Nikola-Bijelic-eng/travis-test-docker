@@ -21,7 +21,9 @@
   #   - ./travis-test-docker/ecc/run.sh
   #   - docker-compose -f ./travis-test-docker/docker-compose.yml up -d
  before_script:
-   - gem install bundler
+  - sudo apt-get install rake
+  - gem install bundler
+#   - chmod +x ./test.sh
 # jobs:
 #   include:
 # - stage: build
