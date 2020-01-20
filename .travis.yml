@@ -8,7 +8,7 @@ services:
 
 env:
   ACTIVEMQ_VERSION: 5.14.3
-  HOME: /C/Users/travis
+  HOME: C://Users/travis
   
 dist: trusty
 
