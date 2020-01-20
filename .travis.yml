@@ -8,7 +8,7 @@ services:
 
 env:
   ACTIVEMQ_VERSION: 5.14.3
-  HOME: C://Users/travis
+  # HOME: C://Users/travis
   
 dist: trusty
 
@@ -38,6 +38,7 @@ include:
   #    arch: arm64
 
 script:
+  - apt-get install libhsdis0-fcml
   - docker-compose pull
   - docker-compose build 
   - docker-compose up
