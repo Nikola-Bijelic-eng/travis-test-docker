@@ -3,17 +3,17 @@
 
 # sudo: required
 
-# services:
-#   - docker
+services:
+  - docker
 
 # env:
 #   ACTIVEMQ_VERSION: 5.14.3
   # HOME: C://Users/travis
   
-# dist: trusty
+dist: trusty
 
-# jdk:
-#   - openjdk12
+jdk:
+  - openjdk12
 
 # install:
   #   - ./travis-test-docker/wait-for-it/wait-for-it.sh
