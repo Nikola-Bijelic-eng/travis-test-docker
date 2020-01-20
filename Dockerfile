@@ -1,4 +1,4 @@
-FROM rdlabengpa/execution_core_container_bl:latest
+FROM rdlabengpa/execution_core_container_bl:v1.0.1
 # RUN apk add --no-cache bash
 # COPY ./wait-for-it/wait-for-it.sh /app/wait-for-it.sh
 # RUN chmod +x /app/wait-for-it.sh
