@@ -20,9 +20,9 @@
   #   - ./travis-test-docker/wait-for-it/test.sh
   #   - ./travis-test-docker/ecc/run.sh
   #   - docker-compose -f ./travis-test-docker/docker-compose.yml up -d
- before_script:
-  - sudo apt-get install rake
-  - gem install bundler
+#  before_script:
+#   - sudo apt-get install rake
+#   - gem install bundler
 #   - chmod +x ./test.sh
 # jobs:
 #   include:
