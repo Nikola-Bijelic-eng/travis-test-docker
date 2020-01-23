@@ -1,6 +1,6 @@
 version: '2.2'
 services:
-  execution_core_container_bl:v1.0.1: 
+  execution_core_container_bl: 
     build: .
     ports:
       - 8450:8449
