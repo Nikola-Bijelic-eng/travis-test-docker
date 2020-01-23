@@ -12,7 +12,7 @@ services:
 # dist: trusty
 
 jdk:
-  - oraclejdk8
+  - oraclejdk12
 
 # install:
   #   - ./travis-test-docker/wait-for-it/wait-for-it.sh
