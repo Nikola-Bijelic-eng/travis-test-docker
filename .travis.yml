@@ -10,7 +10,7 @@ services:
 #   ACTIVEMQ_VERSION: 5.14.3
   # HOME: C://Users/travis
   
-dist: trusty
+# dist: trusty
 
 jdk:
   - openjdk12
@@ -44,6 +44,7 @@ script:
   # - sudo cp /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/hsdis-amd64.so /usr/lib/jvm/java-8-oracle/jre/lib/amd64/hsdis-amd64.so
   # - docker-compose pull
   - sudo apt-get install libhsdis0-fcml
+  - sudo cp /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/hsdis-amd64.so /usr/lib/jvm/java-8-oracle/jre/lib/amd64/hsdis-amd64.so
   - docker-compose build 
   - docker-compose up
   - curl -k -request GET 'https://10.40.202.170:8450/about/version'
