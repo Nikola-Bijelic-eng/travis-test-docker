@@ -12,7 +12,7 @@ services:
 # dist: trusty
 
 jdk:
-  - openjdk8
+  - oraclejdk8
 
 # install:
   #   - ./travis-test-docker/wait-for-it/wait-for-it.sh
@@ -42,7 +42,6 @@ script:
   # - sudo apt-get install libhsdis0-fcml
   # - sudo cp /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/hsdis-amd64.so /usr/lib/jvm/java-8-jdk/jre/lib/amd64/hsdis-amd64.so
   # - docker-compose pull
-  - jdk_switcher use oraclejdk8
   - sudo apt-get install libhsdis0-fcml
   - docker-compose build 
   - docker-compose up
