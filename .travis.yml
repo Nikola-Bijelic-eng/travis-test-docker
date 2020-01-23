@@ -9,7 +9,7 @@ services:
 #   ACTIVEMQ_VERSION: 5.14.3
   # HOME: C://Users/travis
   
-# dist: trusty
+dist: xenial
 
 jdk:
   - oraclejdk12
