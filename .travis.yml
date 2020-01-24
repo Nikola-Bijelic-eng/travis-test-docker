@@ -42,10 +42,10 @@ script:
   # - sudo apt-get install libhsdis0-fcml
   # - sudo cp /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/hsdis-amd64.so /usr/lib/jvm/java-8-jdk/jre/lib/amd64/hsdis-amd64.so
   # - docker-compose pull
-  - docker info
   - sudo apt-get install libhsdis0-fcml
   - docker-compose build 
   - docker-compose up 
+  - docker info
   - curl -k -request GET 'https://10.40.202.170:8450/about/version'
   - docker-compose down
 # - stage: test
