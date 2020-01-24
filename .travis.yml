@@ -46,6 +46,7 @@ script:
   - docker-compose build 
   - docker-compose up 
   - docker info
+  - docker-compose
   - curl -k -request GET 'https://10.40.202.170:8450/about/version'
   - docker-compose down
 # - stage: test
