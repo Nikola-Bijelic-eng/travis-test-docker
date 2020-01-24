@@ -15,10 +15,10 @@ jdk:
   - oraclejdk12
 
 
-matrix:
-  include:
-    - os: linux
-      env: TRAVIS_GOOS=darwin TRAVIS_CGO_ENABLED=0
+# matrix:
+#   include:
+#     - os: linux
+#       env: TRAVIS_GOOS=darwin TRAVIS_CGO_ENABLED=0
 
 # install:
   #   - ./travis-test-docker/wait-for-it/wait-for-it.sh
