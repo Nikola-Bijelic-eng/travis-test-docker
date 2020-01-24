@@ -18,8 +18,9 @@ jdk:
 matrix:
   include:
     - os: linux
-      env: TRAVIS_GOOS=darwin TRAVIS_CGO_ENABLED=0
-      ES_JAVA_OPTS="-Xms2g -Xmx2g" ./bin/elasticsearch
+      env: ES_JAVA_OPTS="-Xms2g -Xmx2g" ./bin/elasticsearch
+      # TRAVIS_GOOS=darwin TRAVIS_CGO_ENABLED=0
+           
 
 # install:
   #   - ./travis-test-docker/wait-for-it/wait-for-it.sh
